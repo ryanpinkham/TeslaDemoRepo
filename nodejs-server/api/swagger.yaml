@@ -3,9 +3,9 @@ swagger: "2.0"
 info:
   description: "A demo API to access and control the Tesla Model S"
   version: "0.0.1"
-  title: "Tesla Model S API"
+  title: "Tesla Model S API "
 host: "virtserver.swaggerhub.com"
-basePath: "/RyanPinkhamDemoOrg/TeslaModelSAPIDemo/0.0.1"
+basePath: "/TeslaDemoOrgApril/TeslaModelSAPI/0.0.1"
 schemes:
 - "https"
 paths:
@@ -62,22 +62,6 @@ paths:
           schema:
             $ref: "#/definitions/inline_response_200_2"
       x-swagger-router-controller: "Default"
-  /vehicles/{id}/data_request/climate_state:
-    get:
-      description: "Returns the current temperature and climate control state."
-      operationId: "climate_state"
-      parameters:
-      - name: "id"
-        in: "path"
-        description: "The ID number of the car"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Success"
-          schema:
-            $ref: "#/definitions/inline_response_200_3"
-      x-swagger-router-controller: "Default"
 definitions:
   inline_response_200_1:
     properties:
@@ -127,39 +111,3 @@ definitions:
       reason:
         type: "string"
         example: ""
-  inline_response_200_3:
-    properties:
-      inside_temp:
-        type: "number"
-        format: "double"
-        example: 17
-        description: "degC inside car"
-      outside_temp:
-        type: "number"
-        format: "double"
-        example: 9.5
-        description: "degC outside car or null"
-      driver_temp_setting:
-        type: "number"
-        format: "double"
-        example: 22.60000000000000142108547152020037174224853515625
-        description: "degC of driver temperature setpoint"
-      passenger_temp_setting:
-        type: "number"
-        format: "double"
-        example: 22.60000000000000142108547152020037174224853515625
-        description: "degC of passenger temperature setpoint"
-      is_auto_conditioning_on:
-        type: "boolean"
-        example: false
-      is_front_defroster_on:
-        type: "boolean"
-        example: false
-      is_rear_defroster_on:
-        type: "boolean"
-        example: false
-      fan_status:
-        type: "integer"
-        format: "int32"
-        example: 3
-        description: "fan speed 0-6 or null"
